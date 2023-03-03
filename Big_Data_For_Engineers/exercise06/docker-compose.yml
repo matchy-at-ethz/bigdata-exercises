@@ -6,7 +6,6 @@ services:
     container_name: rumble-jupyter
     build:
       context: ./docker/rumble-jupyter
-    restart: always
     ports:
       - 8888:8888
     user: root

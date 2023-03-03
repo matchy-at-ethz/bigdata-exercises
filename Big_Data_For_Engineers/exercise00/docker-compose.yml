@@ -5,7 +5,7 @@ services:
   postgres:
     build:
       context: ./docker/postgres
-    restart: always
+        #restart: always
     environment:
       POSTGRES_PASSWORD: BigData1
     volumes:
@@ -15,7 +15,7 @@ services:
   jupyter:
     build:
       context: ./docker/jupyter
-    restart: always
+        #restart: always
     ports:
       - 8888:8888
     user: root

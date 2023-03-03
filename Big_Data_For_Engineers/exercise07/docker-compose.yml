@@ -4,7 +4,6 @@ services:
   namenode:
     image: wenqijiang233/hadoop-namenode
     container_name: namenode
-    restart: always
     ports:
       - 9870:9870
       - 9000:9000
@@ -18,7 +17,6 @@ services:
   datanode:
     image: wenqijiang233/hadoop-datanode 
     container_name: datanode
-    restart: always
     ports:
       - 9864:9864
     volumes:
@@ -31,7 +29,6 @@ services:
   resourcemanager:
     image: wenqijiang233/hadoop-resourcemanager
     container_name: resourcemanager
-    restart: always
     ports:
       - 9988:9988
     environment:
@@ -42,7 +39,6 @@ services:
   nodemanager1:
     image: wenqijiang233/hadoop-nodemanager
     container_name: nodemanager
-    restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
     env_file:
@@ -51,7 +47,6 @@ services:
   historyserver:
     image: wenqijiang233/hadoop-historyserver 
     container_name: historyserver
-    restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode:9864 resourcemanager:8088"
     volumes:
@@ -63,7 +58,6 @@ services:
     container_name: jupyter
     build:
       context: ./docker/jupyter
-    restart: always
     ports:
       - 8888:8888
     user: root

@@ -16,7 +16,6 @@ services:
   
   jupyter:
     image: jupyter/minimal-notebook
-    restart: always
     ports:
       - 8888:8888
     user: root
